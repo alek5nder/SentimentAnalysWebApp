@@ -1,0 +1,39 @@
+﻿@model List<WebAppAI.Models.SentimentResultModel>
+
+@{
+    ViewData["Title"] = "Wyniki analizy";
+}
+
+<h2>Wyniki analizy sentymentu</h2>
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Wiadomość</th>
+            <th>Sentyment</th>
+            <th>Pewność</th>
+            <th>Słowa</th>
+            <th>Znaki</th>
+            <th>Czas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.ToShortPreview(100)</td>
+                <td>@result.Sentiment</td>
+                <td>@result.ToConfidencePercent()</td>
+                <td>@result.WordCount</td>
+                <td>@result.CharCount</td>
+                <td>@result.Timestamp.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="ExportToPdf" method="get">
+    <button type="submit" class="btn btn-success">Pobierz jako PDF</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-2">Wróć do formularza</a>

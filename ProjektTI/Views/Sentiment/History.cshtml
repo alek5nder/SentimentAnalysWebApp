@@ -1,0 +1,31 @@
+﻿@model List<WebAppAI.Models.MessageAnalysisRecord>
+
+<h2>Historia analiz nastroju</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Data i czas</th>
+            <th>Wiadomość</th>
+            <th>Sentyment</th>
+            <th>Wiarygodność</th>
+            <th>Liczba słów</th>
+            <th>Liczba znaków</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@record.Message</td>
+                <td>@record.Sentiment</td>
+                <td>@record.Confidence.ToString("P1")</td>
+                <td>@record.WordCount</td>
+                <td>@record.CharCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index")" class="btn btn-primary">Wróć do analizy</a>

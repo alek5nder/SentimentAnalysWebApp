@@ -1,0 +1,44 @@
+﻿@model List<WebAppAI.Models.TextInputModel>
+
+@using ProjektTI.Resources
+
+@{
+    ViewData["Title"] = FormLabels.PageTitle;
+}
+<a href="@Url.Action("History", "Sentiment")">@FormLabels.ViewHistory</a>
+<p>DEBUG: @FormLabels.ViewHistory</p>
+
+<h2>Analiza sentymentu wiadomości</h2>
+
+<form asp-action="Analyze" method="post">
+    <div id="messages-container">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="message-input mb-3">
+                <label>Wiadomość</label>
+                <textarea class="form-control" rows="3" name="messages[@(i)].Message">@Model[i].Message</textarea>
+                            </div>
+        }
+    </div>
+
+    <button type="button" class="btn btn-secondary" onclick="addMessage()">+ Dodaj wiadomość</button>
+    <button type="submit" class="btn btn-primary mt-2">Analizuj</button>
+</form>
+
+@section Scripts {
+    <script>
+        let messageIndex = @Model.Count;
+
+        function addMessage() {
+            const container = document.getElementById('messages-container');
+            const div = document.createElement('div');
+            div.classList.add('message-input', 'mb-3');
+            div.innerHTML = `
+                        <label for="messages_${messageIndex}__Message">Wiadomość</label>
+                        <textarea class="form-control" rows="3" name="messages[${messageIndex}].Message"></textarea>
+                    `;
+            container.appendChild(div);
+            messageIndex++;
+        }
+    </script>
+}
