@@ -8,68 +8,24 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjektTI.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">🌍 ProjektTI</a>
-            <div class="ml-auto">
-                <!-- zmiana jezyka z pl na eng itd. -->
-                <form id="selectLanguageForm" asp-controller="Culture" asp-action="SetLanguage" method="post" style="display:inline;">
-                <select name="culture" onchange="document.getElementById('selectLanguageForm').submit();" class="form-select form-select-sm" style="width: auto; display: inline-block;">
-                <option value="pl" selected="@((System.Globalization.CultureInfo.CurrentUICulture.Name == "pl") ? "selected" : null)">Polski</option>
-                <option value="en" selected="@((System.Globalization.CultureInfo.CurrentUICulture.Name == "en") ? "selected" : null)">English</option>
-                </select>
-                    <input type="hidden" name="returnUrl" value="@Url.Action(null, null)" />
 
+    @Html.Partial("_Header")
 
-                </form>
-            </div>
-            
-        </nav>
-    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-
-    <footer class="text-center text-muted mt-5 border-top pt-3 small">
-        <p class="mb-1">
-            &copy; @DateTime.Now.Year @SharedLabels.AppName. @SharedLabels.AllRightsReserved
-        </p>
-        <p class="mb-2">
-            @SharedLabels.CreatedBy
-        <section>Aleksander Jasiński &amp; Piotr Otręba</section>
-           
-        </p>
-        <div class="d-flex justify-content-center gap-3">
-            <a href="https://github.com/alek5nder" target="_blank" class="text-muted" aria-label="GitHub Aleksander">
-                <i class="fab fa-github fa-lg"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/alek5nder/" target="_blank" class="text-muted" aria-label="LinkedIn Aleksander">
-                <i class="fab fa-linkedin fa-lg"></i>
-            </a>
-            <section>       </section>
-            <a href="https://github.com/piotrotr" target="_blank" class="text-muted" aria-label="GitHub Piotr">
-                <i class="fab fa-github fa-lg"></i>
-            </a>
-           
-            <a href="https://www.linkedin.com/in/piotr-otr%C4%99ba-ab90ab2a3/" target="_blank" class="text-muted" aria-label="LinkedIn Piotr">
-                <i class="fab fa-linkedin fa-lg"></i>
-            </a>
-        </div>
-    </footer>
+    @Html.Partial("_Footer")
 
 </body>
 </html>

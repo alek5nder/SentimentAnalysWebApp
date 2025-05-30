@@ -22,14 +22,14 @@ namespace ProjektTI.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class SharedLabels {
+    public class HistoryLabels {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SharedLabels() {
+        internal HistoryLabels() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ProjektTI.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProjektTI.Resources.SharedLabels", typeof(SharedLabels).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProjektTI.Resources.HistoryLabels", typeof(HistoryLabels).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,65 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nie znaleziono strony.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Znaki.
         /// </summary>
-        public static string _404Title {
+        public static string CharCount {
             get {
-                return ResourceManager.GetString("404Title", resourceCulture);
+                return ResourceManager.GetString("CharCount", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Błąd serwera.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pewność.
         /// </summary>
-        public static string _505Title {
+        public static string Confidence {
             get {
-                return ResourceManager.GetString("505Title", resourceCulture);
+                return ResourceManager.GetString("Confidence", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wszystkie prawa zastrzeżone.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Data i czas.
         /// </summary>
-        public static string AllRightsReserved {
+        public static string Date {
             get {
-                return ResourceManager.GetString("AllRightsReserved", resourceCulture);
+                return ResourceManager.GetString("Date", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SentimentAnalysOnline.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia analiz nastroju.
         /// </summary>
-        public static string AppName {
+        public static string H1 {
             get {
-                return ResourceManager.GetString("AppName", resourceCulture);
+                return ResourceManager.GetString("H1", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powrót do strony głównej.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wiadomość.
         /// </summary>
-        public static string BckToForm {
+        public static string MessageLabel {
             get {
-                return ResourceManager.GetString("BckToForm", resourceCulture);
+                return ResourceManager.GetString("MessageLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Autorzy:.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Sentyment.
         /// </summary>
-        public static string CreatedBy {
+        public static string Sentiment {
             get {
-                return ResourceManager.GetString("CreatedBy", resourceCulture);
+                return ResourceManager.GetString("Sentiment", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wystąpił nieoczekiwany błąd. Spróbuj ponownie później lub skontaktuj się z administratorem (ajasinki@gmail.com)..
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Słowa.
         /// </summary>
-        public static string GeneralDescript {
+        public static string WordCount {
             get {
-                return ResourceManager.GetString("GeneralDescript", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wystąpił błąd.
-        /// </summary>
-        public static string GenerelTtitle {
-            get {
-                return ResourceManager.GetString("GenerelTtitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Analiza wiadomości.
-        /// </summary>
-        public static string PageTitle {
-            get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
+                return ResourceManager.GetString("WordCount", resourceCulture);
             }
         }
     }

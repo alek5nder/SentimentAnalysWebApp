@@ -16,6 +16,22 @@ namespace WebAppAI.Controllers
 
         private readonly IHttpClientFactory _httpClientFactory;
 
+        private string GetClientIp()
+        {
+            var forwardedHeader = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault();
+            if (!string.IsNullOrEmpty(forwardedHeader))
+            {
+                // Może zawierać wiele IP oddzielonych przecinkami — bierzemy pierwszy
+                return forwardedHeader.Split(',')[0];
+            }
+
+            var ip = HttpContext.Connection.RemoteIpAddress;
+            return ip?.IsIPv4MappedToIPv6 == true
+                ? ip.MapToIPv4().ToString()
+                : ip?.ToString() ?? "unknown";
+        }
+
+
         //historia analiz:
         [HttpGet]
         public async Task<IActionResult> History()
@@ -115,7 +131,7 @@ namespace WebAppAI.Controllers
                     CharCount = message.CharCount,
                     UserId = user.Id,
                     SentimentModelId = sentimentModel.Id,
-                    UserIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown"
+                    UserIp = GetClientIp()
                 };
 
 

@@ -129,6 +129,9 @@
   <data name="Date" xml:space="preserve">
     <value>Date Time</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Language changing not allowed on this page.</value>
+  </data>
   <data name="ExpToPdf" xml:space="preserve">
     <value>Export to PDF</value>
   </data>

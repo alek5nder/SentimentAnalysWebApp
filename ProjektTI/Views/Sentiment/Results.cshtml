@@ -1,40 +1,53 @@
 ﻿@model List<WebAppAI.Models.SentimentResultModel>
 @using ProjektTI.Resources;
-@ResultLabels.MessageLabel
+
 @{
     ViewData["Title"] = ResultLabels.ResultTitle;
 }
 
-<h2>Wyniki analizy sentymentu</h2>
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-6 fw-bold text-primary">@ResultLabels.ResultTitle</h1>
+        <a class="btn btn-outline-primary" href="@Url.Action("Index", "Home")">
+            <i class="fas fa-arrow-left me-1"></i> @ResultLabels.BckToForm
+        </a>
+    </div>
 
-<table class="table table-bordered">
-    <thead class="table-light">
-        <tr>
-            <th>@ResultLabels.MessageLabel</th>
-            <th>@ResultLabels.Confidence</th>
-            <th>@ResultLabels.Sentiment</th>
-            <th>@ResultLabels.WordCount</th>
-            <th>@ResultLabels.CharCount</th>
-            <th>@ResultLabels.Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var result in Model)
-        {
-            <tr>
-                <td>@result.ToShortPreview(100)</td>
-                <td>@result.Sentiment</td>
-                <td>@result.ToConfidencePercent()</td>
-                <td>@result.WordCount</td>
-                <td>@result.CharCount</td>
-                <td>@result.Timestamp.ToString("g")</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="table-responsive shadow-sm rounded border mb-4">
+        <table class="table table-hover align-middle mb-0 bg-white">
+            <thead class="table-light">
+                <tr>
+                    <th>@ResultLabels.MessageLabel</th>
+                    <th>@ResultLabels.Sentiment</th>
+                    <th>@ResultLabels.Confidence</th>
+                    <th>@ResultLabels.WordCount</th>
+                    <th>@ResultLabels.CharCount</th>
+                    <th>@ResultLabels.Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var result in Model)
+                {
+                    <tr>
+                        <td>@result.ToShortPreview(100)</td>
+                        <td>@result.Sentiment</td>
+                        <td>@result.ToConfidencePercent()</td>
+                        <td>@result.WordCount</td>
+                        <td>@result.CharCount</td>
+                        <td>@result.Timestamp.ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-<form asp-action="ExportToPdf" method="get">
-    <button type="submit" class="btn btn-success">@ResultLabels.ExpToPdf</button>
-</form>
+    <form asp-action="ExportToPdf" method="get" class="mb-3">
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-file-pdf me-1"></i> @ResultLabels.ExpToPdf
+        </button>
+    </form>
 
-<a asp-action="Index" class="btn btn-secondary mt-2">@ResultLabels.BckToForm</a>
+    <a class="btn btn-outline-primary" href="@Url.Action("Index", "Sentiment")">
+        <i class="fas fa-arrow-left me-1"></i> @SharedLabels.BckToForm
+    </a>
+</div>

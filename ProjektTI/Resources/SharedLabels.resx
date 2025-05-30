@@ -117,14 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="404Title" xml:space="preserve">
+    <value>Nie znaleziono strony</value>
+  </data>
+  <data name="505Title" xml:space="preserve">
+    <value>Błąd serwera</value>
+  </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>Wszystkie prawa zastrzeżone</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>SentimentAnalysOnline</value>
   </data>
+  <data name="BckToForm" xml:space="preserve">
+    <value>Powrót do strony głównej</value>
+  </data>
   <data name="CreatedBy" xml:space="preserve">
     <value>Autorzy:</value>
+  </data>
+  <data name="GeneralDescript" xml:space="preserve">
+    <value>Wystąpił nieoczekiwany błąd. Spróbuj ponownie później lub skontaktuj się z administratorem (ajasinki@gmail.com).</value>
+  </data>
+  <data name="GenerelTtitle" xml:space="preserve">
+    <value>Wystąpił błąd</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Analiza wiadomości</value>

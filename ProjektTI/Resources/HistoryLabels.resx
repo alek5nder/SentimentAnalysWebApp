@@ -117,31 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="404Title" xml:space="preserve">
-    <value>Page not found</value>
+  <data name="CharCount" xml:space="preserve">
+    <value>Znaki</value>
   </data>
-  <data name="505Title" xml:space="preserve">
-    <value>Server error</value>
+  <data name="Confidence" xml:space="preserve">
+    <value>Pewność</value>
   </data>
-  <data name="AllRightsReserved" xml:space="preserve">
-    <value>All rights reserved</value>
+  <data name="Date" xml:space="preserve">
+    <value>Data i czas</value>
   </data>
-  <data name="AppName" xml:space="preserve">
-    <value>SentimentAnalysOnline</value>
+  <data name="H1" xml:space="preserve">
+    <value>Historia analiz nastroju</value>
   </data>
-  <data name="BckToForm" xml:space="preserve">
-    <value>Back to the main page</value>
+  <data name="MessageLabel" xml:space="preserve">
+    <value>Wiadomość</value>
   </data>
-  <data name="CreatedBy" xml:space="preserve">
-    <value>Authors:</value>
+  <data name="Sentiment" xml:space="preserve">
+    <value>Sentyment</value>
   </data>
-  <data name="GeneralDescript" xml:space="preserve">
-    <value>An enexpected error occured. Try again or contact the administrator (ajasinki@gmail.com).</value>
-  </data>
-  <data name="GenerelTtitle" xml:space="preserve">
-    <value>An error occured</value>
-  </data>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Sentiment message analys</value>
+  <data name="WordCount" xml:space="preserve">
+    <value>Słowa</value>
   </data>
 </root>

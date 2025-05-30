@@ -129,6 +129,9 @@
   <data name="Date" xml:space="preserve">
     <value>Czas</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Zmiana języka nie jest możliwa na tej stronie.</value>
+  </data>
   <data name="ExpToPdf" xml:space="preserve">
     <value>Eksportuj do PDF</value>
   </data>
@@ -136,7 +139,7 @@
     <value>Wiadomość</value>
   </data>
   <data name="ResultTitle" xml:space="preserve">
-    <value>Wyniki analizy</value>
+    <value>Wyniki analizy sentymentu</value>
   </data>
   <data name="Sentiment" xml:space="preserve">
     <value>Sentyment</value>

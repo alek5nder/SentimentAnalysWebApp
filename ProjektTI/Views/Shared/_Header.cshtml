@@ -1,0 +1,44 @@
+﻿@using ProjektTI.Resources;
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-semibold" href="/">
+                ProjektTI
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Sentiment")">
+                            Strona główna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/NotExistingPage">Tutaj nic nie ma!</a> <!--pusta strona, przyklad obslugi błędów-->
+                    </li>
+                </ul>
+
+                <!-- Zmiana języka -->
+                <form id="selectLanguageForm"
+                      asp-controller="Culture"
+                      asp-action="SetLanguage"
+                      method="post"
+                      class="d-flex align-items-center">
+                    <select name="culture"
+                            class="form-select form-select-sm me-2"
+                            style="width: auto;"
+                            onchange="document.getElementById('selectLanguageForm').submit();">
+                        <option value="pl" selected="@((System.Globalization.CultureInfo.CurrentUICulture.Name == "pl") ? "selected" : null)">Polski</option>
+                        <option value="en" selected="@((System.Globalization.CultureInfo.CurrentUICulture.Name == "en") ? "selected" : null)">English</option>
+                    </select>
+                    <input type="hidden" name="returnUrl" value="@Url.Action(null, null)" />
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>

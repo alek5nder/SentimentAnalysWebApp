@@ -1,31 +1,43 @@
 ﻿@model List<WebAppAI.Models.MessageAnalysisRecord>
+@using ProjektTI.Resources;
 
-<h2>Historia analiz nastroju</h2>
+@{
+    ViewData["Title"] = @HistoryLabels.H1;
+}
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Data i czas</th>
-            <th>Wiadomość</th>
-            <th>Sentyment</th>
-            <th>Wiarygodność</th>
-            <th>Liczba słów</th>
-            <th>Liczba znaków</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var record in Model)
-        {
-            <tr>
-                <td>@record.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
-                <td>@record.Message</td>
-                <td>@record.Sentiment</td>
-                <td>@record.Confidence.ToString("P1")</td>
-                <td>@record.WordCount</td>
-                <td>@record.CharCount</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-6 fw-bold text-primary">@HistoryLabels.H1</h1>
+        <a class="btn btn-outline-primary" href="@Url.Action("Index", "Sentiment")">
+            <i class="fas fa-arrow-left me-1"></i> @SharedLabels.BckToForm
+        </a>
+    </div>
 
-<a href="@Url.Action("Index")" class="btn btn-primary">Wróć do analizy</a>
+    <div class="table-responsive shadow-sm rounded border">
+        <table class="table table-hover align-middle mb-0 bg-white">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">@HistoryLabels.Date</th>
+                    <th scope="col">@HistoryLabels.MessageLabel</th>
+                    <th scope="col">@HistoryLabels.Sentiment</th>
+                    <th scope="col">@HistoryLabels.Confidence</th>
+                    <th scope="col">@HistoryLabels.WordCount</th>
+                    <th scope="col">@HistoryLabels.CharCount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in Model)
+                {
+                    <tr>
+                        <td>@record.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td>@record.Message</td>
+                        <td>@record.Sentiment</td>
+                        <td>@record.Confidence.ToString("P1")</td>
+                        <td>@record.WordCount</td>
+                        <td>@record.CharCount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

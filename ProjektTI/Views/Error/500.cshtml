@@ -1,0 +1,9 @@
+﻿@using ProjektTI.Resources;
+
+@{
+    ViewData["Title"] = SharedLabels._505Title;
+}
+
+<h1 class="text-danger">@SharedLabels._505Title</h1>
+<p>505-error</p>
+<a href="@Url.Action("Index", "Sentiment")" class="btn btn-primary mt-3">@SharedLabels.BckToForm</a>

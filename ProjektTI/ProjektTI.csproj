@@ -24,6 +24,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FormLabels.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\HistoryLabels.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HistoryLabels.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\ResultLabels.en.Designer.cs">
       <DependentUpon>ResultLabels.en.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -54,6 +59,10 @@
     <EmbeddedResource Update="Resources\FormLabels.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FormLabels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\HistoryLabels.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HistoryLabels.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ResultLabels.en.resx">
       <LastGenOutput>ResultLabels.en.Designer.cs</LastGenOutput>

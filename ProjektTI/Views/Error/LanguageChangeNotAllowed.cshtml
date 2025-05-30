@@ -2,9 +2,12 @@
     ViewData["Title"] = "Zmiana języka niedozwolona";
 }
 
+@using ProjektTI.Resources;
+
 <div class="alert alert-warning mt-4">
-    <h4>Zmiana języka nie jest możliwa na tej stronie.</h4>
-    <p>Spróbuj powrócić do formularza lub historii, aby zmienić język interfejsu.</p>
+    <h4>@ResultLabels.Error</h4>
+    <p>Wyniki są wysyłane jako POST, prosimy o powrót do formularza i zmianę języka. Historię swoich analiz znajdziesz
+        w odpowiedniej zakładce.</p>
 </div>
 
-<a href="@Url.Action("Index", "Sentiment")" class="btn btn-primary mt-3">Powrót do formularza</a>
+<a href="@Url.Action("Index", "Sentiment")" class="btn btn-primary mt-3">@ResultLabels.BckToForm</a>

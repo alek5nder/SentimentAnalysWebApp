@@ -97,6 +97,15 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmiana języka nie jest możliwa na tej stronie..
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Eksportuj do PDF.
         /// </summary>
         public static string ExpToPdf {
@@ -115,7 +124,7 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyniki analizy.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyniki analizy sentymentu.
         /// </summary>
         public static string ResultTitle {
             get {

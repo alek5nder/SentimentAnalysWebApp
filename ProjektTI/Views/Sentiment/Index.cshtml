@@ -5,25 +5,36 @@
 @{
     ViewData["Title"] = @SharedLabels.PageTitle;
 }
-<a href="@Url.Action("History", "Sentiment")">@FormLabels.ViewHistory</a>
-<p>DEBUG: @FormLabels.ViewHistory</p>
 
-<h2>@FormLabels.H1</h2>
-
-<form asp-action="Analyze" method="post">
-    <div id="messages-container">
-        @for (int i = 0; i < Model.Count; i++)
-        {
-            <div class="message-input mb-3">
-                <label>Wiadomość</label>
-                <textarea class="form-control" rows="3" name="messages[@(i)].Message">@Model[i].Message</textarea>
-                            </div>
-        }
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-6 fw-bold text-primary">@FormLabels.H1</h1>
+        <a class="btn btn-outline-primary" href="@Url.Action("History", "Sentiment")">
+            <i class="fas fa-history me-1"></i> @FormLabels.ViewHistory
+        </a>
     </div>
 
-    <button type="button" class="btn btn-secondary" onclick="addMessage()">+ @FormLabels.AddMessage</button>
-    <button type="submit" class="btn btn-primary mt-2">@FormLabels.SubmitButton</button>
-</form>
+    <form asp-action="Analyze" method="post" class="shadow-sm p-4 bg-white rounded border">
+        <div id="messages-container">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="message-input mb-4">
+                    <label class="form-label">@FormLabels.MessageLabel</label>
+                    <textarea class="form-control form-control-lg" rows="3" name="messages[@(i)].Message">@Model[i].Message</textarea>
+                </div>
+            }
+        </div>
+
+        <div class="d-flex gap-2 mt-3">
+            <button type="button" class="btn btn-outline-secondary" onclick="addMessage()">
+                <i class="fas fa-plus"></i> @FormLabels.AddMessage
+            </button>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> @FormLabels.SubmitButton
+            </button>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <script>
@@ -32,10 +43,10 @@
         function addMessage() {
             const container = document.getElementById('messages-container');
             const div = document.createElement('div');
-            div.classList.add('message-input', 'mb-3');
+            div.classList.add('message-input', 'mb-4');
             div.innerHTML = `
-                        <label for="messages_${messageIndex}__Message">@FormLabels.MessageLabel</label>
-                        <textarea class="form-control" rows="3" name="messages[${messageIndex}].Message"></textarea>
+                        <label class="form-label" for="messages_${messageIndex}__Message">@FormLabels.MessageLabel</label>
+                        <textarea class="form-control form-control-lg" rows="3" name="messages[${messageIndex}].Message"></textarea>
                     `;
             container.appendChild(div);
             messageIndex++;

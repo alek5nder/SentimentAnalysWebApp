@@ -1,0 +1,9 @@
+﻿@using ProjektTI.Resources;
+
+@{
+    ViewData["Title"] = @SharedLabels.GenerelTtitle;
+}
+
+<h1 class="text-warning">@SharedLabels.GenerelTtitle</h1>
+<p>@SharedLabels.GeneralDescript</p>
+<a href="@Url.Action("Index", "Sentiment")" class="btn btn-primary mt-3">@SharedLabels.BckToForm</a>

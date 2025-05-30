@@ -1,0 +1,8 @@
+﻿@using ProjektTI.Resources;
+@{
+    ViewData["Title"] = @SharedLabels._404Title;
+}
+
+<h1 class="text-danger">@SharedLabels._404Title</h1>
+<p>404 - error.</p>
+<a href="@Url.Action("Index", "Sentiment")" class="btn btn-primary mt-3">@SharedLabels.BckToForm</a>
