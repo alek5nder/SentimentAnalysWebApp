@@ -24,3 +24,9 @@ namespace WebAppAI.Data
         }
     }
 }
+/*
+
+cześć, moaj aplikacja w .net nie zmienia języka poprzez FormLabels, 
+    FormLabels samo w sobie działa (wyswietla tekst, ktory okreslilem), ale nie działa przełączananie na FormLabels.en.resx, 
+    ktore ma wersje angielska. Kod _Layout: 
+*/

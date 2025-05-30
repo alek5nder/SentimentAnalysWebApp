@@ -1,7 +1,8 @@
 ﻿@model List<WebAppAI.Models.SentimentResultModel>
-
+@using ProjektTI.Resources;
+@ResultLabels.MessageLabel
 @{
-    ViewData["Title"] = "Wyniki analizy";
+    ViewData["Title"] = ResultLabels.ResultTitle;
 }
 
 <h2>Wyniki analizy sentymentu</h2>
@@ -9,12 +10,12 @@
 <table class="table table-bordered">
     <thead class="table-light">
         <tr>
-            <th>Wiadomość</th>
-            <th>Sentyment</th>
-            <th>Pewność</th>
-            <th>Słowa</th>
-            <th>Znaki</th>
-            <th>Czas</th>
+            <th>@ResultLabels.MessageLabel</th>
+            <th>@ResultLabels.Confidence</th>
+            <th>@ResultLabels.Sentiment</th>
+            <th>@ResultLabels.WordCount</th>
+            <th>@ResultLabels.CharCount</th>
+            <th>@ResultLabels.Date</th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +34,7 @@
 </table>
 
 <form asp-action="ExportToPdf" method="get">
-    <button type="submit" class="btn btn-success">Pobierz jako PDF</button>
+    <button type="submit" class="btn btn-success">@ResultLabels.ExpToPdf</button>
 </form>
 
-<a asp-action="Index" class="btn btn-secondary mt-2">Wróć do formularza</a>
+<a asp-action="Index" class="btn btn-secondary mt-2">@ResultLabels.BckToForm</a>

@@ -117,40 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddMessage" xml:space="preserve">
-    <value>Add message</value>
+  <data name="BckToForm" xml:space="preserve">
+    <value>Back to the form</value>
   </data>
   <data name="CharCount" xml:space="preserve">
-    <value>Char count</value>
-    <comment>Char count</comment>
+    <value>Chars</value>
   </data>
-  <data name="H1" xml:space="preserve">
-    <value>Message sentiment analys</value>
+  <data name="Confidence" xml:space="preserve">
+    <value>Confidence</value>
   </data>
-  <data name="Language" xml:space="preserve">
-    <value>English language</value>
+  <data name="Date" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="ExpToPdf" xml:space="preserve">
+    <value>Export to PDF</value>
   </data>
   <data name="MessageLabel" xml:space="preserve">
     <value>Message</value>
-    <comment>Message</comment>
   </data>
-  <data name="RequiredError" xml:space="preserve">
-    <value>This field is required</value>
-    <comment>This field is required</comment>
+  <data name="ResultTitle" xml:space="preserve">
+    <value>Analysis results</value>
   </data>
-  <data name="SubmitButton" xml:space="preserve">
-    <value>Analyze</value>
-    <comment>Analyze</comment>
-  </data>
-  <data name="TextLength" xml:space="preserve">
-    <value>The maximum count of chars is 1000 chars.</value>
-    <comment>The maximum count of chars is 1000 chars.</comment>
-  </data>
-  <data name="ViewHistory" xml:space="preserve">
-    <value>View your analys history</value>
+  <data name="Sentiment" xml:space="preserve">
+    <value>Sentiment</value>
   </data>
   <data name="WordCount" xml:space="preserve">
-    <value>WordCount</value>
-    <comment>Word count</comment>
+    <value>Words</value>
   </data>
 </root>

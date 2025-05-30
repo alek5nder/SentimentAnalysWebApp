@@ -36,6 +36,17 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStatusCodePages(async context =>
+{
+    var response = context.HttpContext.Response;
+
+    if (response.StatusCode == 405)
+    {
+        response.Redirect("/Error/LanguageChangeNotAllowed");
+    }
+});
+
+
 
 app.UseRouting();
 

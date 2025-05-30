@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddMessage" xml:space="preserve">
+    <value>Dodaj wiadomość</value>
+  </data>
   <data name="CharCount" xml:space="preserve">
     <value>CharCount</value>
     <comment>Liczba znaków</comment>
   </data>
+  <data name="H1" xml:space="preserve">
+    <value>Analiza sentymentu wiadomości</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Język Polski</value>
+  </data>
   <data name="MessageLabel" xml:space="preserve">
     <value>Wiadomość</value>
     <comment>Wiadomość</comment>
-  </data>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Analiza wiadomości</value>
   </data>
   <data name="RequiredError" xml:space="preserve">
     <value>To pole jest wymagane</value>

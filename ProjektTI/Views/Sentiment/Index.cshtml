@@ -3,12 +3,12 @@
 @using ProjektTI.Resources
 
 @{
-    ViewData["Title"] = FormLabels.PageTitle;
+    ViewData["Title"] = @SharedLabels.PageTitle;
 }
 <a href="@Url.Action("History", "Sentiment")">@FormLabels.ViewHistory</a>
 <p>DEBUG: @FormLabels.ViewHistory</p>
 
-<h2>Analiza sentymentu wiadomości</h2>
+<h2>@FormLabels.H1</h2>
 
 <form asp-action="Analyze" method="post">
     <div id="messages-container">
@@ -21,8 +21,8 @@
         }
     </div>
 
-    <button type="button" class="btn btn-secondary" onclick="addMessage()">+ Dodaj wiadomość</button>
-    <button type="submit" class="btn btn-primary mt-2">Analizuj</button>
+    <button type="button" class="btn btn-secondary" onclick="addMessage()">+ @FormLabels.AddMessage</button>
+    <button type="submit" class="btn btn-primary mt-2">@FormLabels.SubmitButton</button>
 </form>
 
 @section Scripts {
@@ -34,7 +34,7 @@
             const div = document.createElement('div');
             div.classList.add('message-input', 'mb-3');
             div.innerHTML = `
-                        <label for="messages_${messageIndex}__Message">Wiadomość</label>
+                        <label for="messages_${messageIndex}__Message">@FormLabels.MessageLabel</label>
                         <textarea class="form-control" rows="3" name="messages[${messageIndex}].Message"></textarea>
                     `;
             container.appendChild(div);

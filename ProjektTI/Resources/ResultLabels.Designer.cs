@@ -22,14 +22,14 @@ namespace ProjektTI.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class FormLabels {
+    public class ResultLabels {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal FormLabels() {
+        internal ResultLabels() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ProjektTI.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProjektTI.Resources.FormLabels", typeof(FormLabels).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProjektTI.Resources.ResultLabels", typeof(ResultLabels).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,16 +61,16 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dodaj wiadomość.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powrót do formularza.
         /// </summary>
-        public static string AddMessage {
+        public static string BckToForm {
             get {
-                return ResourceManager.GetString("AddMessage", resourceCulture);
+                return ResourceManager.GetString("BckToForm", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu CharCount.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Znaki.
         /// </summary>
         public static string CharCount {
             get {
@@ -79,20 +79,29 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Analiza sentymentu wiadomości.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pewność.
         /// </summary>
-        public static string H1 {
+        public static string Confidence {
             get {
-                return ResourceManager.GetString("H1", resourceCulture);
+                return ResourceManager.GetString("Confidence", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Język Polski.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Czas.
         /// </summary>
-        public static string Language {
+        public static string Date {
             get {
-                return ResourceManager.GetString("Language", resourceCulture);
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Eksportuj do PDF.
+        /// </summary>
+        public static string ExpToPdf {
+            get {
+                return ResourceManager.GetString("ExpToPdf", resourceCulture);
             }
         }
         
@@ -106,43 +115,25 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu To pole jest wymagane.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyniki analizy.
         /// </summary>
-        public static string RequiredError {
+        public static string ResultTitle {
             get {
-                return ResourceManager.GetString("RequiredError", resourceCulture);
+                return ResourceManager.GetString("ResultTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Analizuj.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Sentyment.
         /// </summary>
-        public static string SubmitButton {
+        public static string Sentiment {
             get {
-                return ResourceManager.GetString("SubmitButton", resourceCulture);
+                return ResourceManager.GetString("Sentiment", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Maksymalnie możesz wpisać 1000 znaków..
-        /// </summary>
-        public static string TextLength {
-            get {
-                return ResourceManager.GetString("TextLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zobacz historię swoich analiz.
-        /// </summary>
-        public static string ViewHistory {
-            get {
-                return ResourceManager.GetString("ViewHistory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Liczba słów.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Słowa.
         /// </summary>
         public static string WordCount {
             get {
