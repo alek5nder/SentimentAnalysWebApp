@@ -5,6 +5,76 @@
     ViewData["Title"] = @HistoryLabels.H1;
 }
 
+@{
+    var currentSort = Context.Request.Query["sortColumn"].ToString();
+    var currentDirection = Context.Request.Query["sortDirection"].ToString();
+    string GetNextSortDirection(string column) => (currentSort == column && currentDirection == "asc") ? "desc" : "asc";
+}
+
+@{
+    var headers = new[]
+    {
+        new { Text = HistoryLabels.Date, SortKey = "Timestamp" },
+        new { Text = HistoryLabels.MessageLabel, SortKey = "Message" },
+        new { Text = HistoryLabels.Sentiment, SortKey = "Sentiment" },
+        new { Text = HistoryLabels.Confidence, SortKey = "Confidence" },
+        new { Text = HistoryLabels.WordCount, SortKey = "WordCount" },
+        new { Text = HistoryLabels.CharCount, SortKey = "CharCount" },
+    };
+}
+
+@* formularz do wyboru parametrów filtrowania *@
+<form asp-action="History" method="get" class="mb-4">
+    <div class="row g-2 align-items-end">
+        @*wybór daty*@
+        <div class="col-md-2">
+            
+            <input type="date" name="date" class="form-control" />
+        </div>
+
+        @*wybór sentymentu*@
+        <div class="col-md-2">
+            <select name="sentiment" class="form-select">
+                <option value="">-- Wszystkie sentymenty --</option>
+                <option value="Positive">Pozytywny</option>
+                <option value="Neutral">Neutralny</option>
+                <option value="Negative">Negatywny</option>
+            </select>
+        </div>
+
+        @*minimalna liczva słów*@
+        <div class="col-md-2">
+            
+            <input type="number" name="minWords" min="1" class="form-control" placeholder="Min. słów" />
+        </div>
+
+        @*określenie minimalnego poziomu ufności*@
+        <div class="col-md-3">
+            
+            <label for="minConfidence" class="form-label">Min. poziom ufności: <span id="confValue">0.5</span></label>
+            <input type="range" class="form-range" min="0" max="1" step="0.01" value="0.5" name="minConfidence" id="minConfidence"
+                   oninput="document.getElementById('confValue').innerText = this.value" />
+        </div>
+
+        @*wpisywanie fragmentu wiadomości*@
+        <div class="col-md-3">
+            <input type="text" name="messageContains" class="form-control"
+                   placeholder="Szukaj w treści wiadomości..." value="@Context.Request.Query["messageContains"]" />
+        </div>
+
+        @*filtrowanie historii*@
+        <div class="col-md-1 d-grid">
+            <button type="submit" class="btn btn-primary">Filtruj</button>
+        </div>
+
+        @*czyszczenie filtrów*@
+        <div class="col-md-2 d-grid">
+            <a class="btn btn-outline-secondary" href="@Url.Action("History", "Sentiment")">Wyczyść filtry</a>
+        </div>
+    </div>
+</form>
+
+
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="display-6 fw-bold text-primary">@HistoryLabels.H1</h1>
@@ -17,12 +87,17 @@
         <table class="table table-hover align-middle mb-0 bg-white">
             <thead class="table-light">
                 <tr>
-                    <th scope="col">@HistoryLabels.Date</th>
-                    <th scope="col">@HistoryLabels.MessageLabel</th>
-                    <th scope="col">@HistoryLabels.Sentiment</th>
-                    <th scope="col">@HistoryLabels.Confidence</th>
-                    <th scope="col">@HistoryLabels.WordCount</th>
-                    <th scope="col">@HistoryLabels.CharCount</th>
+                    @foreach (var header in headers)
+                    {
+                        <th>
+                            <a asp-action="History"
+                               asp-route-sortColumn="@header.SortKey"
+                               asp-route-sortDirection="@GetNextSortDirection(header.SortKey)">
+                                @header.Text
+                                @(currentSort == header.SortKey ? (currentDirection == "asc" ? "↑" : "↓") : "")
+                            </a>
+                        </th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -35,9 +110,21 @@
                         <td>@record.Confidence.ToString("P1")</td>
                         <td>@record.WordCount</td>
                         <td>@record.CharCount</td>
+
+                        <td>
+                            <form asp-action="Delete" method="post" asp-route-id="@record.Id" class="d-inline">
+                                <button type="submit" class="delete-btn" title="Usuń"
+                                        onclick="return confirm('Na pewno chcesz usunąć ten rekord?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+
                     </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
+
+
