@@ -155,7 +155,8 @@ namespace WebAppAI.Controllers
             return View("Results", sentimentResults);
         }
 
-        
+
+
         private async Task<SentimentResultModel> CallPythonApiAsync(string message)
         {
             var client = _httpClientFactory.CreateClient();

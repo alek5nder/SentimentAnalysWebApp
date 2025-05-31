@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="JsonConverter.Newtonsoft.Json" Version="0.7.1" />
+    <PackageReference Include="Markdown" Version="2.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
       <PrivateAssets>all</PrivateAssets>
