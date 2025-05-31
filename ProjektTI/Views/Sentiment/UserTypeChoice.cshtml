@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Choose User Type";
+}
+
+<div class="container py-5 text-center">
+    <h2 class="mb-4">Are you a Premium or Normal user?</h2>
+
+    <a href="@Url.Action("History", "Sentiment", new { userType = "normal" })" class="btn btn-outline-primary me-3">
+        Normal User
+    </a>
+    <a href="@Url.Action("History", "Sentiment", new { userType = "premium" })" class="btn btn-primary">
+        Premium User
+    </a>
+</div>

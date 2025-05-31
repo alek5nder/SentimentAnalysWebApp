@@ -20,3 +20,22 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: rgba(220, 53, 69, 0.4); /* Bootstrap red with low opacity */
+    font-size: 1.25rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    color: rgba(220, 53, 69, 1); /* Fully opaque red */
+    transform: scale(1.2); /* Slightly enlarge the button */
+}
+
+.delete-btn:focus {
+    outline: none;
+    box-shadow: none;
+}

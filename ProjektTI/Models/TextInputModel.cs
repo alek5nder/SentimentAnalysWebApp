@@ -7,7 +7,9 @@ namespace WebAppAI.Models
 {
     public class TextInputModel
     {
-        
+        [Key]
+        public int Id { get; set; }
+
         [Display(ResourceType = typeof(FormLabels), Name = "MessageLabel")]
         [Required(ErrorMessageResourceType = typeof(FormLabels), ErrorMessageResourceName = "RequiredError")]
         [StringLength(1000, ErrorMessageResourceType = typeof(FormLabels), ErrorMessageResourceName = "TextLength")]
