@@ -1,6 +1,10 @@
-using Microsoft.AspNetCore.HttpOverrides;
+﻿using Microsoft.AspNetCore.HttpOverrides;
 using WebAppAI.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using ProjektTI.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +16,22 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
     options.KnownProxies.Clear();
 });
 
+// nowe
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromDays(30); // Cookie lifetime
+    });
+
+builder.Services.AddAuthorization();
+
+// nowe
+
+
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
@@ -24,6 +43,9 @@ builder.Services.AddDbContext<SentimentDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SentimentDb")));
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseForwardedHeaders();
 
@@ -41,8 +63,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseStatusCodePages(async context =>
-{
+app.UseStatusCodePages(async context => {
     var response = context.HttpContext.Response;
     if (response.StatusCode == 405)
     {
@@ -56,6 +77,7 @@ app.UseStatusCodePages(async context =>
 
 app.UseRouting();
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",

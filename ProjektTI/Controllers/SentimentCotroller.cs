@@ -8,11 +8,13 @@ using WebAppAI.Data;
 using WebAppAI.Models;
 using SelectPdf;
 using Microsoft.IdentityModel.Tokens;
-using System.Text.RegularExpressions; //do pdf
+using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Authorization; //do pdf
 
 
 namespace WebAppAI.Controllers
 {
+    [Authorize]
     public class SentimentController : Controller
     {
 
@@ -35,11 +37,13 @@ namespace WebAppAI.Controllers
 
 
         //historia analiz:
-        [HttpGet]
-        public async Task<IActionResult> History(string userType, DateTime? date, 
-            string sentiment, int? minWords, double? minConfidence, 
-            string sortColumn, string sortDirection, string? messageContains)
+        [Authorize] 
+        public async Task<IActionResult> History(DateTime? date, string sentiment, int? minWords, 
+            double? minConfidence, string sortColumn, string sortDirection, string? messageContains)
         {
+            // sprawdzamy, czy użytkownik jest użytkownikiem premium
+            var isPremium = User.IsInRole("Premium");
+
             var ipAddress = HttpContext.Connection.RemoteIpAddress;
             var ip = ipAddress?.IsIPv4MappedToIPv6 == true
                 ? ipAddress.MapToIPv4().ToString()
@@ -48,7 +52,7 @@ namespace WebAppAI.Controllers
             var query = _db.MessageAnalyses.Where(r => r.UserIp == ip);
 
             // jeśli użytkownik to użytkownik premium to pokazujemy wszystkie daty, jeśli nie, to tylko dzisiejszą
-            if (userType != "premium")
+            if (!isPremium)
             {
                 var today = DateTime.Today;
                 query = query.Where(r => r.Timestamp.Date == today);
@@ -82,7 +86,7 @@ namespace WebAppAI.Controllers
             // filtr - wiadomość 
             if (!string.IsNullOrEmpty(messageContains))
             {
-                query = query.Where(r => r.Message.StartsWith(messageContains));
+                query = query.Where(r => r.Message.Contains(messageContains));
             }
 
             // Sortowanie
@@ -144,17 +148,27 @@ namespace WebAppAI.Controllers
         [HttpPost]
         public async Task<IActionResult> Analyze(List<TextInputModel> messages)
         {
+            // Pozostawiamy niepuste wiadomości
+            messages = messages.Where(m => !string.IsNullOrWhiteSpace(m.Message)).ToList();
+
+            // Jeśli wszystkie wiadomości były puste, zwracamy informację
+            if (messages == null || messages.Count == 0)
+            {
+                ModelState.AddModelError("", "Wprowadź co najmniej jedną wiadomość do analizy.");
+                return View("Index", new List<TextInputModel> { new TextInputModel() });
+            }
+
+            //if (messages == null || messages.All(m => string.IsNullOrWhiteSpace(m.Message)))
+            //{
+            //    ModelState.AddModelError("", "Wprowadź co najmniej jedną wiadomość do analizy.");
+            //    return View("Index", messages);
+            //}
+
             if (!ModelState.IsValid)
             {
                 return View("Index", messages);
             }
 
-            // sprawdzenie, czy użytkownik wpisał wiadomość - ma wyświetlać error ale nie działa :(
-            if (messages == null || !messages.Any(m => !string.IsNullOrWhiteSpace(m.Message)))
-            {
-                ModelState.AddModelError(string.Empty, "Wprowadź przynajmniej jedną wiadomość.");
-                return View("Index", messages);
-            }
 
             // 🔐 Pobieramy unikalny identyfikator użytkownika z ciasteczka
             var clientId = Request.Cookies["ClientId"];
@@ -191,6 +205,7 @@ namespace WebAppAI.Controllers
 
             foreach (var message in messages)
             {
+                Console.WriteLine($"Processing message: {message}");
                 if (string.IsNullOrWhiteSpace(message.Message))
                     continue;
 
@@ -229,14 +244,6 @@ namespace WebAppAI.Controllers
 
             return View("Results", sentimentResults);
         }
-
-        [HttpGet]
-        public IActionResult ChooseUserType()
-        {
-            return View("UserTypeChoice");
-        }
-
-
 
         private async Task<SentimentResultModel> CallPythonApiAsync(string message)
         {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjektTI.Models;
 using System.Diagnostics;
@@ -13,6 +14,7 @@ namespace ProjektTI.Controllers
             _logger = logger;
         }
 
+        [Authorize(Roles = "Premium")]
         public IActionResult Index()
         {
             return View();
@@ -22,6 +24,13 @@ namespace ProjektTI.Controllers
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public IActionResult Public()
+        {
+            return Content("This page is public.");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
