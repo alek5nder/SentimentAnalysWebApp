@@ -149,14 +149,14 @@ namespace WebAppAI.Controllers
                 return View("Index", messages);
             }
 
-            // sprawdzenie, czy użytkownik wpisał wiadomość - ma wyświetlać error ale nie działa :(
+            // sprawdzenie, czy użytkownik wpisał wiadomość
             if (messages == null || !messages.Any(m => !string.IsNullOrWhiteSpace(m.Message)))
             {
                 ModelState.AddModelError(string.Empty, "Wprowadź przynajmniej jedną wiadomość.");
                 return View("Index", messages);
             }
 
-            // 🔐 Pobieramy unikalny identyfikator użytkownika z ciasteczka
+            //Pobieramy unikalny identyfikator użytkownika z ciasteczka
             var clientId = Request.Cookies["ClientId"];
             if (string.IsNullOrEmpty(clientId))
             {
@@ -164,7 +164,7 @@ namespace WebAppAI.Controllers
                 Response.Cookies.Append("ClientId", clientId);
             }
 
-            // 🔍 Znajdź lub utwórz użytkownika
+            //Znajdź lub utwórz użytkownika
             var user = await _db.Users.FirstOrDefaultAsync(u => u.UniqueClientId == clientId);
             if (user == null)
             {
@@ -173,7 +173,7 @@ namespace WebAppAI.Controllers
                 await _db.SaveChangesAsync();
             }
 
-            // 🔍 Znajdź lub utwórz model AI (hardcoded dla uproszczenia)
+            //Znajdź lub utwórz model AI
             var modelName = "SentimentModel v1";
             var sentimentModel = await _db.SentimentModels.FirstOrDefaultAsync(m => m.Name == modelName);
             if (sentimentModel == null)
