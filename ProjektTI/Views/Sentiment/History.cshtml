@@ -27,9 +27,19 @@
 <form asp-action="History" method="get" class="mb-4">
     <div class="row g-2 align-items-end">
         @*wybór daty*@
+
+        @{
+            // Get today's date in yyyy-MM-dd format for input value
+            string today = DateTime.Today.ToString("yyyy-MM-dd");
+
+            // Determine if the user is a standard user (not premium)
+            bool isStandard = !User.IsInRole("Premium");
+        }
+
+
         <div class="col-md-2">
-            
-            <input type="date" name="date" class="form-control" />
+            <input type="date" name="date" class="form-control"
+                   value=@(isStandard ? @today: "") @(isStandard ? "disabled" : "") />
         </div>
 
         @*wybór sentymentu*@
@@ -42,17 +52,17 @@
             </select>
         </div>
 
-        @*minimalna liczva słów*@
+        @*minimalna liczba słów*@
         <div class="col-md-2">
             
-            <input type="number" name="minWords" min="1" class="form-control" placeholder="Min. słów" />
+            <input type="number" name="minWords" min="1" class="form-control" placeholder="Min. liczba słów" />
         </div>
 
         @*określenie minimalnego poziomu ufności*@
         <div class="col-md-3">
             
-            <label for="minConfidence" class="form-label">Min. poziom ufności: <span id="confValue">0.5</span></label>
-            <input type="range" class="form-range" min="0" max="1" step="0.01" value="0.5" name="minConfidence" id="minConfidence"
+            <label for="minConfidence" class="form-label">Min. poziom ufności: <span id="confValue">0</span></label>
+            <input type="range" class="form-range" min="0" max="1" step="0.01" value="0" name="minConfidence" id="minConfidence"
                    oninput="document.getElementById('confValue').innerText = this.value" />
         </div>
 
@@ -94,7 +104,11 @@
                                asp-route-sortColumn="@header.SortKey"
                                asp-route-sortDirection="@GetNextSortDirection(header.SortKey)">
                                 @header.Text
-                                @(currentSort == header.SortKey ? (currentDirection == "asc" ? "↑" : "↓") : "")
+                                @(
+                                currentSort == header.SortKey
+                                ? (currentDirection == "asc" ? "↑" : "↓")
+                                : (header.SortKey == "Timestamp" && string.IsNullOrEmpty(currentSort) ? "↓" : "")
+                                )
                             </a>
                         </th>
                     }

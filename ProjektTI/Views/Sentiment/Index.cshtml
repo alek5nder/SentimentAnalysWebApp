@@ -10,13 +10,12 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="display-6 fw-bold text-primary">@FormLabels.H1</h1>
         
-        <a class="btn btn-secondary" href="@Url.Action("ChooseUserType", "Sentiment")">
-            View Analyze History
+        <a class="btn btn-secondary" href="@Url.Action("History", "Sentiment")">
+            View History
         </a>
        
     </div>
 
-    
     <form asp-action="Analyze" method="post" class="shadow-sm p-4 bg-white rounded border">
         
         @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
@@ -52,8 +51,7 @@
             div.classList.add('message-input', 'mb-4');
             div.innerHTML = `
                         <label class="form-label" for="messages_${messageIndex}__Message">@FormLabels.MessageLabel</label>
-                        <textarea class="form-control form-control-lg" rows="3" name="messages[${messageIndex}].Message"></textarea>
-                    `;
+                        <textarea class="form-control form-control-lg" rows="3" name="messages[${messageIndex}].Message"></textarea>`;
             container.appendChild(div);
             messageIndex++;
         }
