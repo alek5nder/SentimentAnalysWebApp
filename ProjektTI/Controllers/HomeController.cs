@@ -17,7 +17,8 @@ namespace ProjektTI.Controllers
         [Authorize(Roles = "Premium")]
         public IActionResult Index()
         {
-            return View();
+            var displayHelp = true;
+            return View(displayHelp);
         }
 
         public IActionResult Privacy()
@@ -29,6 +30,12 @@ namespace ProjektTI.Controllers
         public IActionResult Public()
         {
             return Content("This page is public.");
+        }
+
+
+        public IActionResult Instructions()
+        {
+            return View("Instructions");
         }
 
 

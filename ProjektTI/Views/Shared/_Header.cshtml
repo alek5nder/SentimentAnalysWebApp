@@ -20,9 +20,6 @@
                         <a class="nav-link" href="@Url.Action("Index", "Sentiment")">
                             Strona główna</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/NotExistingPage">Tutaj nic nie ma!</a> <!--pusta strona, przyklad obslugi błędów-->
-                    </li>
                 </ul>
 
                 @*informacje o zalogowanym użytkowniku i przycisk do wylogowania się*@
@@ -36,13 +33,6 @@
                     </form>
                 }
 
-                @*Tutaj odnośnik do strony login - ale imo nie ma sytuacji, w której to jest potrzebne
-                bo albo user jest zalogowany albo nie jest zalogowany ale ląduje na stronie do logowania*@
-
-                @* else *@
-                @* { *@
-                @*     <a class="nav-link text-white" href="/Account/Login">Login</a> *@
-                @* } *@
 
                 <!-- Zmiana języka -->
                 <form id="selectLanguageForm"
