@@ -23,12 +23,12 @@ namespace WebAppAI.Controllers
                 return View();
             }
 
-            var role = userType == "Premium" ? "Premium" : "Standard";
+            //var role = userType == "Premium" ? "Premium" : "Standard";
 
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, role)
+                new Claim(ClaimTypes.Role, userType)
             };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
