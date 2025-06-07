@@ -24,7 +24,7 @@
 }
 
 @* formularz do wyboru parametrów filtrowania *@
-<form asp-action="History" method="get" class="mb-4">
+<form asp-controller="History" asp-action="History" method="get" class="mb-4">
     <div class="row g-2 align-items-end">
         @*wybór daty*@
 
@@ -45,7 +45,7 @@
         @*wybór sentymentu*@
         <div class="col-md-2">
             <select name="sentiment" class="form-select">
-                <option value="">-- Wszystkie sentymenty --</option>
+                <option value="">-- @HistoryLabels.AllSents --</option>
                 <option value="Positive">Pozytywny</option>
                 <option value="Neutral">Neutralny</option>
                 <option value="Negative">Negatywny</option>
@@ -55,13 +55,13 @@
         @*minimalna liczba słów*@
         <div class="col-md-2">
             
-            <input type="number" name="minWords" min="1" class="form-control" placeholder="Min. liczba słów" />
+            <input type="number" name="minWords" min="1" class="form-control" placeholder="@HistoryLabels.MinWords" />
         </div>
 
         @*określenie minimalnego poziomu ufności*@
         <div class="col-md-3">
             
-            <label for="minConfidence" class="form-label">Min. poziom ufności: <span id="confValue">0</span></label>
+            <label for="minConfidence" class="form-label">@HistoryLabels.MinConfidence: <span id="confValue">0</span></label>
             <input type="range" class="form-range" min="0" max="1" step="0.01" value="0" name="minConfidence" id="minConfidence"
                    oninput="document.getElementById('confValue').innerText = this.value" />
         </div>
@@ -74,12 +74,12 @@
 
         @*filtrowanie historii*@
         <div class="col-md-1 d-grid">
-            <button type="submit" class="btn btn-primary">Filtruj</button>
+            <button type="submit" class="btn btn-primary">@HistoryLabels.Filter</button>
         </div>
 
         @*czyszczenie filtrów*@
         <div class="col-md-2 d-grid">
-            <a class="btn btn-outline-secondary" href="@Url.Action("History", "Sentiment")">Wyczyść filtry</a>
+            <a class="btn btn-outline-secondary" href="@Url.Action("History", "Sentiment")">@HistoryLabels.Clear</a>
         </div>
     </div>
 </form>
@@ -126,7 +126,7 @@
                         <td>@record.CharCount</td>
 
                         <td>
-                            <form asp-action="Delete" method="post" asp-route-id="@record.Id" class="d-inline">
+                            <form asp-controller="History" asp-action="Delete" method="post" asp-route-id="@record.Id" class="d-inline">
                                 <button type="submit" class="delete-btn" title="Usuń"
                                         onclick="return confirm('Na pewno chcesz usunąć ten rekord?');">
                                     <i class="fas fa-trash-alt"></i>

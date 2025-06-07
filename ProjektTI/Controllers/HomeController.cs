@@ -14,7 +14,14 @@ namespace ProjektTI.Controllers
             _logger = logger;
         }
 
-        [Authorize(Roles = "Premium")]
+        //do instruckji przchodzimy
+        public IActionResult Instructions()
+        {
+            return View();
+        }
+
+
+        [Authorize(Roles = "Premium")] //autoryzacja uzytk. premium
         public IActionResult Index()
         {
             return View();

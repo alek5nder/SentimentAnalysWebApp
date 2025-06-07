@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllSents" xml:space="preserve">
+    <value>All sentiments</value>
+  </data>
   <data name="BckToForm" xml:space="preserve">
     <value>Back to the form</value>
   </data>
   <data name="CharCount" xml:space="preserve">
     <value>Chars</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear filters</value>
   </data>
   <data name="Confidence" xml:space="preserve">
     <value>Confidence</value>
@@ -135,11 +141,23 @@
   <data name="ExpToPdf" xml:space="preserve">
     <value>Export to PDF</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
   <data name="MessageLabel" xml:space="preserve">
     <value>Message</value>
   </data>
+  <data name="MinConfidence" xml:space="preserve">
+    <value>Min. level of confidence</value>
+  </data>
+  <data name="MinWords" xml:space="preserve">
+    <value>Min. words</value>
+  </data>
   <data name="ResultTitle" xml:space="preserve">
     <value>Analysis results</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Search the message</value>
   </data>
   <data name="Sentiment" xml:space="preserve">
     <value>Sentiment</value>

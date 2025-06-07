@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Instrukcja obsługi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <h1 class="display-6 fw-bold text-primary mb-4">Instrukcja obsługi</h1>
+
+    <h2 class="h4 fw-semibold mt-4">1. Logowanie</h2>
+    <p>Po uruchomieniu aplikacji powita Cię strona logowania. W polu <strong>"Username"</strong> wpisz swój pseudonim. Następnie wybierz typ konta – <strong>Standard</strong> lub <strong>Premium</strong>.</p>
+    <blockquote class="blockquote alert alert-warning">
+        <strong>UWAGA!:</strong> Obecnie konto Premium jest darmowe dla wszystkich – warto korzystać, póki jest taka okazja!
+    </blockquote>
+    <p>Aplikacja zapamiętuje Twoje dane dzięki ciasteczkom – czyli po zalogowaniu nie musisz za każdym razem wpisywać wszystkiego od nowa. Twoje dane (nazwa użytkownika i typ konta) będą widoczne w górnej części strony, w tzw. <strong>pasku nawigacyjnym</strong>.</p>
+
+    <hr />
+
+    <h2 class="h4 fw-semibold mt-4">2. Pasek nawigacji i obsługa błędów</h2>
+    <p>Dotarłeś na główną stronę. Doskonale rozumiemy, jak ważna w dzisiejszych czasach jest komunikatywność oraz uniwersalność udostępnianych narzędzi. W tym celu nasza strona obsługuje aż dwa języki – Polski oraz Angielski. My w tym czasie omówimy pasek nawigacyjny, który jest Twoją podręczną mapą po aplikacji. Znajdziesz go na górze każdej strony.</p>
+
+    <p><strong>🔹 Z lewej strony</strong> masz logo projektu i przyciski:</p>
+    <ul>
+        <li><strong>Strona główna</strong> – wraca do miejsca, gdzie możesz wprowadzać nowe wiadomości do analizy.</li>
+        <li><strong>Tutaj nic nie ma!</strong> – to specjalny link, który pokazuje, jak wygląda obsługa błędów w aplikacji. Jeśli coś pójdzie nie tak albo wejdziesz na nieistniejącą stronę, zobaczysz komunikat w stylu: <em>"Ups! Tutaj nic nie ma..."</em></li>
+    </ul>
+
+    <p><strong>🔹 Po prawej stronie</strong> znajdziesz:</p>
+    <ul>
+        <li>Informacje o tym, <strong>kim jesteś</strong> i z jakiego konta korzystasz (Standard lub Premium),</li>
+        <li>Przycisk <strong>Logout</strong>, czyli wylogowania,</li>
+        <li><strong>Zmianę języka</strong> – możesz swobodnie przełączać się między językiem polskim i angielskim w każdej chwili.</li>
+    </ul>
+
+    <hr />
+
+    <h2 class="h4 fw-semibold mt-4">3. Wysyłanie wiadomości do analizy</h2>
+    <p>Przejdźmy do rzeczy. Na stronie głównej możesz wpisać treść wiadomości:</p>
+    <ul>
+        <li><strong>[1]</strong> Wpisz, co tylko chcesz – system poradzi sobie z każdą treścią.</li>
+        <li><strong>[2]</strong> Kliknij ➕, aby dodać więcej wiadomości.</li>
+        <li><strong>[3]</strong> Kliknij „Wyślij”, aby przekazać dane do analizy.</li>
+    </ul>
+    <p>Za kulisami nasz model AI analizuje Twoją wiadomość i po chwili trafisz na stronę z wynikami.</p>
+
+    <hr />
+
+    <h2 class="h4 fw-semibold mt-4">4. Wyniki analizy</h2>
+    <p>No i jesteśmy – upragniona analiza. Na stronie wyników zobaczysz szczegóły analizy każdej wiadomości:</p>
+    <ul>
+        <li>Treść wiadomości (może być skrócona, jeśli była długa),</li>
+        <li>Ocena sentymentu: <strong>Pozytywny</strong>, <strong>Neutralny</strong> lub <strong>Negatywny</strong>,</li>
+        <li>Poziom ufności – czyli na ile nasz system jest pewny swojej oceny,</li>
+        <li>Liczba słów i znaków,</li>
+        <li>Data i godzina analizy.</li>
+    </ul>
+    <p class="alert alert-info">📝 Możesz też pobrać cały raport jako <strong>plik PDF</strong>, klikając zielony przycisk z ikoną PDF. Przyda się do prezentacji, raportu czy po prostu dla siebie.</p>
+
+    <hr />
+
+    <h2 class="h4 fw-semibold mt-4">5. Historia analiz</h2>
+    <p>Z poziomu strony głównej możesz przejść do historii analiz, klikając przycisk <strong>„View History”</strong>.</p>
+    <p>Co tam znajdziesz?</p>
+    <ul>
+        <li>Pełną listę analizowanych przez Ciebie wiadomości,</li>
+        <li>Możliwość filtrowania: po dacie, sentymencie, liczbie słów, poziomie ufności czy zawartości wiadomości,</li>
+        <li>Możliwość sortowania wyników po różnych kolumnach (np. od najnowszych),</li>
+        <li>Użytkownicy <strong>Premium</strong> mają dostęp do wszystkich swoich analiz z dowolnego dnia,</li>
+        <li>Użytkownicy <strong>Standard</strong> widzą tylko analizy wykonane <strong>dzisiaj</strong>.</li>
+    </ul>
+</div>

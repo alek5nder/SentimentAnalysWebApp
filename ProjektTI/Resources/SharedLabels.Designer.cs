@@ -133,6 +133,33 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Instrukcja obsługi.
+        /// </summary>
+        public static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Strona główna.
+        /// </summary>
+        public static string MainPage {
+            get {
+                return ResourceManager.GetString("MainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Tutaj nic nie ma!.
+        /// </summary>
+        public static string PageNotFound {
+            get {
+                return ResourceManager.GetString("PageNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Analiza wiadomości.
         /// </summary>
         public static string PageTitle {

@@ -141,6 +141,15 @@
   <data name="GenerelTtitle" xml:space="preserve">
     <value>An error occured</value>
   </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Instruction</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Main Page</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>There is nothing here!</value>
+  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Sentiment message analys</value>
   </data>

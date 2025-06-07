@@ -16,13 +16,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                                        <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "Sentiment")">
-                            Strona główna</a>
+                            @SharedLabels.MainPage</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/NotExistingPage">Tutaj nic nie ma!</a> <!--pusta strona, przyklad obslugi błędów-->
+                        <a class="nav-link" href="/NotExistingPage">@SharedLabels.PageNotFound</a> <!--pusta strona, przyklad obslugi błędów-->
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Instructions", "Home")">@SharedLabels.Instruction</a>
+                    </li>
+
                 </ul>
 
                 @*informacje o zalogowanym użytkowniku i przycisk do wylogowania się*@

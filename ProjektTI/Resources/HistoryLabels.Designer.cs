@@ -61,11 +61,29 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wszystkie sentymenty.
+        /// </summary>
+        public static string AllSents {
+            get {
+                return ResourceManager.GetString("AllSents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Znaki.
         /// </summary>
         public static string CharCount {
             get {
                 return ResourceManager.GetString("CharCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyczyść filtry.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
             }
         }
         
@@ -88,6 +106,15 @@ namespace ProjektTI.Resources {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Filtruj.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia analiz nastroju.
         /// </summary>
         public static string H1 {
@@ -102,6 +129,33 @@ namespace ProjektTI.Resources {
         public static string MessageLabel {
             get {
                 return ResourceManager.GetString("MessageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Min. poziom ufności.
+        /// </summary>
+        public static string MinConfidence {
+            get {
+                return ResourceManager.GetString("MinConfidence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Min. liczba słów.
+        /// </summary>
+        public static string MinWords {
+            get {
+                return ResourceManager.GetString("MinWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Szukaj w treści wiadomości.
+        /// </summary>
+        public static string SearchText {
+            get {
+                return ResourceManager.GetString("SearchText", resourceCulture);
             }
         }
         

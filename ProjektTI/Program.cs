@@ -16,7 +16,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
     options.KnownProxies.Clear();
 });
 
-// nowe
+// nowe, uwierztlnianie
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -49,6 +49,7 @@ app.UseAuthorization();
 
 app.UseForwardedHeaders();
 
+// lokalizacja zasobów - słowniki
 app.UseRequestLocalization(new RequestLocalizationOptions()
     .SetDefaultCulture("pl")
     .AddSupportedCultures("pl", "en")
@@ -63,6 +64,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+//przekierowywanie błędów strony
 app.UseStatusCodePages(async context => {
     var response = context.HttpContext.Response;
     if (response.StatusCode == 405)

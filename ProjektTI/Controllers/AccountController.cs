@@ -42,6 +42,8 @@ namespace WebAppAI.Controllers
 
             return RedirectToAction("Index", "Sentiment");
         }
+        
+        // wylogowanie:
 
         [Authorize]
         public async Task<IActionResult> Logout()
